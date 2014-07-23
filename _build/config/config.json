@@ -4,5 +4,5 @@
   "packageDescription":"",
   "version":"1.0.0",
   "release":"beta1",
-  "menus":""
+  "menus":"[{\"MIGX_id\":\"1\",\"text\":\"Agendas\",\"parent\":\"components\",\"description\":\"Manage Agendas\",\"icon\":\"\",\"menuindex\":\"\",\"params\":\"&configs=sriagenda||sriagenda_spk||sriagenda_loc\",\"handler\":\"\",\"permissions\":\"\",\"action.id\":\"\",\"action.namespace\":\"\",\"action.controller\":\"\",\"action.haslayout\":\"0\",\"action.lang_topics\":\"\",\"action.assets\":\"\"}]"
 }

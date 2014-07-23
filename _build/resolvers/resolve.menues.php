@@ -10,7 +10,7 @@ if ($object->xpdo) {
             $modx->getVersionData();
 
 
-            $menues = $modx->fromJson('');
+            $menues = $modx->fromJson('[{"MIGX_id":"1","text":"Agendas","parent":"components","description":"Manage Agendas","icon":"","menuindex":"","params":"&configs=sriagenda||sriagenda_spk||sriagenda_loc","handler":"","permissions":"","action.id":"","action.namespace":"","action.controller":"","action.haslayout":"0","action.lang_topics":"","action.assets":""}]');
 
             if (is_array($menues) && count($menues) > 0) {
                 $modx->log(modX::LOG_LEVEL_INFO, 'Prepare menu for MODX Revolution 2.3.x');
