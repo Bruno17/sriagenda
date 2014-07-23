@@ -1,0 +1,93 @@
+<model package="sriagenda" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+      
+    <object class="sriagenda" table="sriagenda" extends="xPDOSimpleObject">
+        <field key="conf_year" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="conf_theme" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="conf_start" dbtype="datetime" phptype="datetime" null="false"/>
+        <field key="conf_end" dbtype="datetime" phptype="datetime" null="false"/>
+        <field key="conf_status" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="createdon" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="deleted" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="published" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="1"/>
+    
+        <composite alias="Sessions" class="sriagenda_ses" local="id" foreign="agenda_id" cardinality="many" owner="local" />
+         
+    </object>
+      
+    <object class="sriagenda_spk" table="sriagenda_spk" extends="xPDOSimpleObject">
+        <field key="spk_salutation" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_fname" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_mname" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_lname" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_suffix" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_credentials" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_affiliation1" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_affiliation2" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_title1" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_title2" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_photo" dbtype="text" phptype="string" null="false" default=""/>
+        <field key="spk_bio" dbtype="text" phptype="string" null="false" default=""/>
+        <field key="spk_phone" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_email" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_conf" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_type" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_carousel" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="spk_notes" dbtype="text" phptype="string" null="false" default=""/>
+        <field key="createdon" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="deleted" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="published" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="1"/>
+         
+        <composite alias="Sessions" class="sriagenda_ses_spk" local="id" foreign="ses_id" cardinality="many" owner="local" />        
+    </object>
+       
+    <object class="sriagenda_loc" table="sriagenda_loc" extends="xPDOSimpleObject">
+        <field key="loc_building" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="loc_room" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="createdon" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="deleted" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="published" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="1"/>
+         
+        <composite alias="Sessions" class="sriagenda_ses" local="id" foreign="loc_id" cardinality="many" owner="local" />
+    </object>
+     
+    <object class="sriagenda_ses" table="sriagenda_ses" extends="xPDOSimpleObject">
+        <field key="agenda_id" dbtype="int" phptype="integer" precision="10" null="false" default="" index="index" />       
+        <field key="loc_id" dbtype="int" phptype="integer" precision="10" null="false" default="" index="index" />
+        <field key="ses_title" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_type" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_start" dbtype="datetime" phptype="datetime" null="false"/>
+        <field key="ses_end" dbtype="datetime" phptype="datetime" null="false"/>
+        <field key="ses_desc" dbtype="text" phptype="string" null="false" default=""/>
+        <field key="ses_cecredit" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="speakers" dbtype="text" phptype="string" null="false" default=""/> 
+        <field key="ses_pres1" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_pres2" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_pres3" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_pres4" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_pres5" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_audio" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="ses_video" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="createdon" dbtype="datetime" phptype="datetime" null="true"/>
+        <field key="deleted" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0"/>
+        <field key="published" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="1"/>
+         
+        <aggregate alias="Agenda" class="sriagenda" local="agenda_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="Location" class="sriagenda_loc" local="loc_id" foreign="id" cardinality="one" owner="foreign" />            
+        <composite alias="Speakers" class="sriagenda_ses_spk" local="id" foreign="ses_id" cardinality="many" owner="local" />
+           
+    </object>
+     
+    <object class="sriagenda_ses_spk" table="sriagenda_ses_spk" extends="xPDOSimpleObject">
+        <field key="ses_id" dbtype="int" phptype="integer" precision="10" null="false" default="" index="index" />
+        <field key="spk_id" dbtype="int" phptype="integer" precision="10" null="false" default="" index="index" />
+        <field key="order" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="notes" dbtype="text" phptype="string" null="false" default=""/>
+        <field key="MIGX_id" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>  
+         
+        <aggregate alias="Session" class="sriagenda_ses" local="ses_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="Speaker" class="sriagenda_spk" local="spk_id" foreign="id" cardinality="one" owner="foreign" />        
+    </object>   
+     
+     
+      
+</model>
